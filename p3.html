@@ -1,39 +1,36 @@
-<!DOCTYPE html>
 <html>
-<head>
-<title>JavaScript - Grow & Shrink Text</title>
-<script language = "JavaScript">
-	var c = 0, t1;
-	function start()
-	{
-		t1 = window.setInterval("incr()", 100);
-	}
-	function incr() 
-	{
-		c = c + 1;
-		t.innerHTML = "TEXT-GROWING : " + c + "pt";
-		t.style.fontSize = c + "pt";
-		window.status = c;
-		if (c >= 50) 
-		{
-			window.clearTimeout(t1);
-			alert("Font Size Reached 50pt. Text will Now Shrink");
-			t1 = window.setInterval("decr()", 100);
-		}
-		t.style.color = "red";
-	}
-	function decr() 
-	{
-		c = c - 1;
-		t.innerHTML = "TEXT-SHRINKING: " + c + "pt";
-		t.style.fontSize = c + "pt";
-		window.status = c;
-		t.style.color = "blue";
-	}
+<body>
+<div align="center">
+<h1 style="font-size: 5px; color: red;"></h1>
+</div>
+<script>
+var text = document.querySelector('h1');
+var font = 5;
+var flag = 0;
+function inc(){
+font++;
+text.style.fontSize = font;
+text.style.color = "red";
+text.textContent="TEXT-GROWING:"+font+"pt";
+if(font==51)
+flag=1;
+}
+function dec(){
+font--;
+text.style.fontSize = font;
+text.style.color = "blue";
+text.textContent="TEXT-SHRINKING:"+font+"pt";
+if(font==5)
+flag=0;
+}
+var time = setInterval(function(){
+if(flag==1){
+dec();
+}
+if(flag==0){
+inc();
+}
+}, 100);
 </script>
-</head>
-<body onload="start()">
-<center>
-<p id="t"></p>
-</center>
-</body></html>
+</body>
+</html>
