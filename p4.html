@@ -1,30 +1,30 @@
 <html>
-  <head>
-    <title>First vowel and Reverse a Number</title>
-    <script>
-      function compute() {
-        let value = document.getElementById("input").value;
-        value = value.toLowerCase();
-        if (isNaN(value)) {
-          for (let i = 0; i < value.length; i++) {
-            if (["a", "e", "i", "o", "u"].indexOf(value[i]) != -1) {
-              document.getElementById("answer").innerHTML = `Found at ${i+1} vowel ${value[i]}`;
-              break;
-            }
-	    else
-	    {
-	      document.getElementById("answer").innerHTML = `Vowel not Found`;
-	    }
-          }
-        } else {
-          value=value.toString().split("").reverse().join("");
-          document.getElementById("answer").innerHTML = value;
-        }
+<head>
+<title>First vowel and Reverse a Number</title>
+<script>
+function compute() {
+  val = document.getElementById("input").value.toLowerCase();;
+  if (isNaN(val)) {
+    for (i = 0; i < val.length; i++) {
+      if(['a','e','i','o','u'].includes(val[i])){
+        document.getElementById("answer").innerHTML = 'Found at ' + (i+1) + ' vowel ' + val[i];
+        break;
       }
-    </script>
-  </head>
-  <body>
-    <input type="text" id="input" /> <button onclick="compute()">Submit</button>
-    <div id="answer"></div>
-  </body>
+	    else
+	      document.getElementById("answer").innerHTML = 'Vowel not Found';
+      }
+  }
+  else {
+    val=val.split("").reverse().join("");
+    document.getElementById("answer").innerHTML = val;
+  }
+}
+</script>
+</head>
+<body>
+Enter the query </br>
+<input id="input" />
+<button onclick="compute()">Submit</button>
+<div id="answer"></div>
+</body>
 </html>
